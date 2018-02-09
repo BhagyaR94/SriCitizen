@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Button, TouchableHighlight, Text} from 'react-native';
+import {View, TouchableHighlight, Text} from 'react-native';
 
 class Preferences extends Component {
 
@@ -66,7 +66,7 @@ const styles = {
     buttonTitleStyles: {
         fontSize: 30,
         margin: 10,
-        color:'#000',
+        color:'#333',
     },
     buttonStyles: {
         backgroundColor:'#eee',
@@ -85,7 +85,7 @@ const styles = {
         flex: 0.1,
         flexDirection: 'row',
         justifyContent: 'center'
-    }
+    },
 }
 
 export default Preferences;

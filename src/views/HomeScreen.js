@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
     View,
-    Button,
+    AsyncStorage,
     NetInfo,
     Alert,
     BackHandler,
@@ -27,15 +27,26 @@ class HomeScreen extends Component {
         },
     };
 
+    componentDidMount() {
+        console.log("WILL MOUNT ACCESSED");
+        this._method1();
+    }
+
+    _method1 = async () => {
+        try {
+            let user = await AsyncStorage.getItem('@MySuperStore:key').then();
+            console.log("HELLO" + user);
+        }
+        catch (error) {
+            console.log("ERROR OCCURED" + error);
+        }
+    }
+
     render() {
+
         const {navigate} = this.props.navigation;
-
-        console.log(this.props.navigation.state.params.locale);
-
         strings.setLanguage(this.props.navigation.state.params.locale);
-
         NetInfo.getConnectionInfo().then((connectionInfo) => {
-
             if (connectionInfo.type === 'none') {
                 Alert.alert(
                     'No Connectivity',
@@ -81,79 +92,184 @@ class HomeScreen extends Component {
                     <View style={styles.containerStyle}>
 
                         <View style={styles.cardSectionStyle}>
+
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin:10}}
+                                <TouchableHighlight style={{margin: 10}}
                                                     onPress={() => navigate("PaperIndex", {
                                                         screen: "NewsPapers"
                                                     })}>
-                                    <Image
-                                        source={require('./../../assets/img/main_menu/paper.png')}
-                                    />
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/paper.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.newspaper}</Text>
+                                    </View>
                                 </TouchableHighlight>
-                                <Text style={styles.textStyles}>{strings.newspaper}</Text>
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin:10}}
+                                <TouchableHighlight style={{margin: 10}}
                                                     onPress={() => navigate("PaperIndex", {
                                                         screen: "NewsPapers"
                                                     })}>
-                                    <Image
-                                        source={require('./../../assets/img/main_menu/calendar.png')}
-                                    />
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/calendar.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.holidays}</Text></View>
                                 </TouchableHighlight>
-                                <Text style={styles.textStyles}>{strings.holidays}</Text>
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin:10}}
+                                <TouchableHighlight style={{margin: 10}}
                                                     onPress={() => navigate("PaperIndex", {
                                                         screen: "NewsPapers"
                                                     })}>
-                                    <Image
-                                        source={require('./../../assets/img/main_menu/telephone.png')}
-                                    />
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/telephone.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.telephone}</Text>
+                                    </View>
                                 </TouchableHighlight>
-                                <Text style={styles.textStyles}>{strings.telephone}</Text>
                             </View>
 
                         </View>
 
                         <View style={styles.cardSectionStyle}>
+
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin:10}}
-                                                    onPress={() => navigate("PaperIndex", {
+                                <TouchableHighlight style={{margin: 10}}
+                                                    onPress={() => navigate("MarketScreen", {
                                                         screen: "NewsPapers"
                                                     })}>
-                                    <Image
-                                        source={require('./../../assets/img/main_menu/market.png')}
-                                    />
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/market.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.market}</Text>
+                                    </View>
                                 </TouchableHighlight>
-                                <Text style={styles.textStyles}>{strings.market}</Text>
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin:10}}
+                                <TouchableHighlight style={{margin: 10}}
                                                     onPress={() => navigate("PaperIndex", {
                                                         screen: "NewsPapers"
                                                     })}>
-                                    <Image
-                                        source={require('./../../assets/img/main_menu/lightning.png')}
-                                    />
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/lightning.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.weather}</Text>
+                                    </View>
                                 </TouchableHighlight>
-                                <Text style={styles.textStyles}>{strings.weather}</Text>
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin:10}}
+                                <TouchableHighlight style={{margin: 10}}
                                                     onPress={() => navigate("PaperIndex", {
                                                         screen: "NewsPapers"
                                                     })}>
-                                    <Image
-                                        source={require('./../../assets/img/main_menu/zodiac.png')}
-                                    />
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/zodiac.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.zodiac}</Text>
+                                    </View>
                                 </TouchableHighlight>
-                                <Text style={styles.textStyles}>{strings.zodiac}</Text>
+                            </View>
+
+                        </View>
+
+                        <View style={styles.cardSectionStyle}>
+
+                            <View style={styles.buttonStyle}>
+                                <TouchableHighlight style={{margin: 10}}
+                                                    onPress={() => navigate("PaperIndex", {
+                                                        screen: "NewsPapers"
+                                                    })}>
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/market.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.market}</Text>
+                                    </View>
+                                </TouchableHighlight>
+                            </View>
+
+                            <View style={styles.buttonStyle}>
+                                <TouchableHighlight style={{margin: 10}}
+                                                    onPress={() => navigate("PaperIndex", {
+                                                        screen: "NewsPapers"
+                                                    })}>
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/lightning.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.weather}</Text>
+                                    </View>
+                                </TouchableHighlight>
+                            </View>
+
+                            <View style={styles.buttonStyle}>
+                                <TouchableHighlight style={{margin: 10}}
+                                                    onPress={() => navigate("PaperIndex", {
+                                                        screen: "NewsPapers"
+                                                    })}>
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/zodiac.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.zodiac}</Text>
+                                    </View>
+                                </TouchableHighlight>
+                            </View>
+
+                        </View>
+
+                        <View style={styles.cardSectionStyle}>
+
+                            <View style={styles.buttonStyle}>
+                                <TouchableHighlight style={{margin: 10}}
+                                                    onPress={() => navigate("PaperIndex", {
+                                                        screen: "NewsPapers"
+                                                    })}>
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/market.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.market}</Text>
+                                    </View>
+                                </TouchableHighlight>
+                            </View>
+
+                            <View style={styles.buttonStyle}>
+                                <TouchableHighlight style={{margin: 10}}
+                                                    onPress={() => navigate("PaperIndex", {
+                                                        screen: "NewsPapers"
+                                                    })}>
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/lightning.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.weather}</Text>
+                                    </View>
+                                </TouchableHighlight>
+                            </View>
+
+                            <View style={styles.buttonStyle}>
+                                <TouchableHighlight style={{margin: 10}}
+                                                    onPress={() => navigate("PaperIndex", {
+                                                        screen: "NewsPapers"
+                                                    })}>
+                                    <View>
+                                        <Image
+                                            source={require('./../../assets/img/main_menu/zodiac.png')}
+                                        />
+                                        <Text style={styles.textStyles}>{strings.zodiac}</Text>
+                                    </View>
+                                </TouchableHighlight>
                             </View>
 
                         </View>
@@ -209,15 +325,16 @@ const styles = {
 
 let strings = new LocalizedStrings({
     en: {
+        headerText:"Main Menu",
         newspaper: "News Papers",
         market: "Market",
         weather: "Weather",
         zodiac: "Zodiac Fortunes",
         telephone: "Telephone Numbers",
         holidays: "Special Holidays"
-
     },
     si: {
+        headerText:"ප්‍රධාන මෙනුව",
         newspaper: "පුවත්පත්",
         market: "වෙළඳපොළ",
         weather: "කාලගුණ",
@@ -226,6 +343,7 @@ let strings = new LocalizedStrings({
         holidays: "විශේෂ නිවාඩු"
     },
     ta: {
+        headerText:"Main Menu",
         newspaper: "News Papers",
         market: "Market",
         weather: "Weather",

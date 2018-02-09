@@ -1,19 +1,28 @@
 import React, {Component} from 'react';
-import {View, Image, Text, ActivityIndicator} from 'react-native';
+import {View, Image, Text, ActivityIndicator, AsyncStorage} from 'react-native';
 import {AdMobInterstitial} from 'react-native-admob';
 
 class SplashScreen extends Component {
 
     static navigationOptions = {
         title: "",
-        header:null,
+        header: null,
     };
 
     render() {
 
+        try {
+            AsyncStorage.setItem('@MySuperStore:key', 'This is a sample');
+            console.log("ITEM ADDED TO THE DB");
+        }
+
+        catch (error) {
+            console.log("ERROR" + error);
+        }
+
         const {navigate} = this.props.navigation;
 
-        this.timeoutHandle = setTimeout(()=>{
+        this.timeoutHandle = setTimeout(() => {
             AdMobInterstitial.setAdUnitID('ca-app-pub-4625055388531278/5014627964');
             AdMobInterstitial.setTestDevices([AdMobInterstitial.simulatorId]);
             AdMobInterstitial.requestAd().then(() => AdMobInterstitial.showAd());
@@ -27,7 +36,7 @@ class SplashScreen extends Component {
             <View style={styles.containerStyles}>
                 <Text style={styles.headerStyles}>ශ්‍රී Citizen</Text>
                 <Image style={styles.imageStyles} source={require('./../../assets/img/lion_face.png')}/>
-                <Text style={styles.bottomTextStyles} >A Collection of Supportive Information</Text>
+                <Text style={styles.bottomTextStyles}>A Collection of Supportive Information</Text>
                 <ActivityIndicator size="large" color="#FFF"/>
             </View>
         );
