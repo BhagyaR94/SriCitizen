@@ -1,0 +1,1 @@
+export const REDUX_SAMPLE_ONE = 'redux_sample_one';

@@ -12,7 +12,8 @@ import {
 } from 'react-native';
 import { AdMobBanner } from 'react-native-admob';
 import LocalizedStrings from 'react-native-localization';
-
+import * as actions from '../actions/';
+import { connect } from 'react-redux';
 
 class HomeScreen extends Component {
     static navigationOptions = {
@@ -25,10 +26,17 @@ class HomeScreen extends Component {
         headerStyle: {
             backgroundColor: '#009688',
         },
+
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            sample123: '',
+        }
+    }
+
     componentDidMount() {
-        console.log("WILL MOUNT ACCESSED");
         this._method1();
     }
 
@@ -299,6 +307,15 @@ class HomeScreen extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    console.log('***************************************');
+    console.log('MAP STATE TO PROPS'+JSON.stringify(state.news));
+    console.log('***************************************');
+    const newsPapers = state.news;
+    // const newsPapers = '';
+    return { newsPapers }
+};
+
 const styles = {
     mainContainer: {
         flex: 0.9,
@@ -361,4 +378,4 @@ let strings = new LocalizedStrings({
     }
 });
 
-export default HomeScreen;
+export default connect(mapStateToProps, actions)(HomeScreen);
