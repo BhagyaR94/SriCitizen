@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View,
     AsyncStorage,
@@ -10,7 +10,7 @@ import {
     Image,
     Text
 } from 'react-native';
-import {AdMobBanner} from 'react-native-admob';
+import { AdMobBanner } from 'react-native-admob';
 import LocalizedStrings from 'react-native-localization';
 
 
@@ -44,7 +44,7 @@ class HomeScreen extends Component {
 
     render() {
 
-        const {navigate} = this.props.navigation;
+        const { navigate } = this.props.navigation;
         strings.setLanguage(this.props.navigation.state.params.locale);
         NetInfo.getConnectionInfo().then((connectionInfo) => {
             if (connectionInfo.type === 'none') {
@@ -52,9 +52,9 @@ class HomeScreen extends Component {
                     'No Connectivity',
                     'No Internet Connection! Please Connect Your Device for Better Experience.',
                     [
-                        {text: 'OK', onPress: () => console.log('OK Pressed')},
+                        { text: 'OK', onPress: () => console.log('OK Pressed') },
                     ],
-                    {cancelable: false}
+                    { cancelable: false }
                 );
             }
 
@@ -79,25 +79,26 @@ class HomeScreen extends Component {
                 'Warning!',
                 'You Are About to Exit.Are You Sure You Want To Continue?',
                 [
-                    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                    {text: 'Exit', onPress: () => BackHandler.exitApp()},
+                    { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                    { text: 'Exit', onPress: () => BackHandler.exitApp() },
                 ],
-                {cancelable: false}
+                { cancelable: false }
             );
         });
 
         return (
-            <View style={{flex: 1}}>
+            <View style={{ flex: 1 }}>
                 <ScrollView style={styles.mainContainer}>
                     <View style={styles.containerStyle}>
 
+                        {/* First Row */}
                         <View style={styles.cardSectionStyle}>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/paper.png')}
@@ -108,10 +109,10 @@ class HomeScreen extends Component {
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/calendar.png')}
@@ -121,10 +122,10 @@ class HomeScreen extends Component {
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/telephone.png')}
@@ -135,14 +136,16 @@ class HomeScreen extends Component {
                             </View>
 
                         </View>
+                        {/* End of First Row */}
 
+                        {/* Second Row */}
                         <View style={styles.cardSectionStyle}>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("MarketScreen", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("MarketScreen", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/market.png')}
@@ -153,10 +156,10 @@ class HomeScreen extends Component {
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/lightning.png')}
@@ -167,10 +170,10 @@ class HomeScreen extends Component {
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/zodiac.png')}
@@ -181,14 +184,16 @@ class HomeScreen extends Component {
                             </View>
 
                         </View>
+                        {/* End of Second Row */}
 
+                        {/* Third Row */}
                         <View style={styles.cardSectionStyle}>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/market.png')}
@@ -199,10 +204,10 @@ class HomeScreen extends Component {
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/lightning.png')}
@@ -213,10 +218,10 @@ class HomeScreen extends Component {
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/zodiac.png')}
@@ -227,14 +232,16 @@ class HomeScreen extends Component {
                             </View>
 
                         </View>
+                        {/* End of Third Row */}
 
+                        {/* Fourth Row */}
                         <View style={styles.cardSectionStyle}>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/market.png')}
@@ -245,10 +252,10 @@ class HomeScreen extends Component {
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/lightning.png')}
@@ -259,10 +266,10 @@ class HomeScreen extends Component {
                             </View>
 
                             <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{margin: 10}}
-                                                    onPress={() => navigate("PaperIndex", {
-                                                        screen: "NewsPapers"
-                                                    })}>
+                                <TouchableHighlight style={{ margin: 10 }}
+                                    onPress={() => navigate("PaperIndex", {
+                                        screen: "NewsPapers"
+                                    })}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/zodiac.png')}
@@ -273,11 +280,12 @@ class HomeScreen extends Component {
                             </View>
 
                         </View>
+                        {/* End of Fourth Row */}
 
                     </View>
                 </ScrollView>
 
-                <View style={{flex: 0.1, margin: 1}}>
+                <View style={{ flex: 0.1, margin: 1 }}>
                     <AdMobBanner
                         adSize="smartBannerLandscape"
                         adUnitID="ca-app-pub-4625055388531278/4690344274"
@@ -325,7 +333,7 @@ const styles = {
 
 let strings = new LocalizedStrings({
     en: {
-        headerText:"Main Menu",
+        headerText: "Main Menu",
         newspaper: "News Papers",
         market: "Market",
         weather: "Weather",
@@ -334,7 +342,7 @@ let strings = new LocalizedStrings({
         holidays: "Special Holidays"
     },
     si: {
-        headerText:"ප්‍රධාන මෙනුව",
+        headerText: "ප්‍රධාන මෙනුව",
         newspaper: "පුවත්පත්",
         market: "වෙළඳපොළ",
         weather: "කාලගුණ",
@@ -343,7 +351,7 @@ let strings = new LocalizedStrings({
         holidays: "විශේෂ නිවාඩු"
     },
     ta: {
-        headerText:"Main Menu",
+        headerText: "Main Menu",
         newspaper: "News Papers",
         market: "Market",
         weather: "Weather",

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, TouchableHighlight, Text} from 'react-native';
+import {View, TouchableOpacity, Text} from 'react-native';
 
 class Preferences extends Component {
 
@@ -22,20 +22,20 @@ class Preferences extends Component {
             <View style={styles.containerStyles}>
 
                 <View style={styles.subContainerStyles}>
-                    <TouchableHighlight style={styles.buttonStyles}
+                    <TouchableOpacity style={styles.buttonStyles}
                                         onPress={this.setToSinhalese}>
                         <Text style={styles.buttonTitleStyles}>සිං</Text>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
 
-                    <TouchableHighlight style={styles.buttonStyles}
+                    <TouchableOpacity style={styles.buttonStyles}
                                         onPress={this.setToTamil}>
                         <Text style={styles.buttonTitleStyles}>த</Text>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
 
-                    <TouchableHighlight style={styles.buttonStyles}
+                    <TouchableOpacity style={styles.buttonStyles}
                                         onPress={this.setToEnglish}>
                         <Text style={styles.buttonTitleStyles}>En</Text>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                 </View>
 
             </View>
