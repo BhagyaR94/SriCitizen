@@ -119,7 +119,8 @@ class HomeScreen extends Component {
 
                             <TileComponent
                                 btnText={'Sample 123 here'}
-                            />
+                            /> 
+                            {/* sample */}
                             
                         </View>
                         {/* End of First Row */}
