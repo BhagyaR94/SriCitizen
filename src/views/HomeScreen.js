@@ -6,9 +6,7 @@ import {
     Alert,
     BackHandler,
     ScrollView,
-    TouchableHighlight,
-    Image,
-    Text
+    ActivityIndicator,
 } from 'react-native';
 import { AdMobBanner } from 'react-native-admob';
 import LocalizedStrings from 'react-native-localization';
@@ -104,86 +102,97 @@ class HomeScreen extends Component {
 
         return (
             <View style={{ flex: 1 }}>
-                <ScrollView style={styles.mainContainer}>
-                    <View style={styles.containerStyle}>
-                        <View style={styles.cardSectionStyle}>
 
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
-                            />
+                {/* <ActivityIndicator size="large" color="#0000ff" style={{position:'relative',justifyContent:'space-around'}} /> */}
 
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={this.gotoPage('sample1', 'sample1')}
-                            />
+                <View style={styles.carouselContainer}>
 
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={this.gotoPage('sample1', 'sample1')}
-                            />
+                </View>
+                <View style={styles.tileContainer}>
+                    <ScrollView style={styles.mainContainer}>
+                        <View style={styles.containerStyle}>
+
+                            <View style={styles.cardSectionStyle}>
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                    onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
+                                />
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                    onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers1234') }}
+                                />
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={this.gotoPage('sample1', 'sample1')}
+                                />
+
+                            </View>
+
+                            <View style={styles.cardSectionStyle}>
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={() => this.gotoPage('PaperIndex', 'NewsPapers')}
+                                />
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={this.gotoPage('sample1', 'sample1')}
+                                />
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={this.gotoPage('sample1', 'sample1')}
+                                />
+
+                            </View>
+
+                            <View style={styles.cardSectionStyle}>
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
+                                />
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={this.gotoPage('sample1', 'sample1')}
+                                />
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={this.gotoPage('sample1', 'sample1')}
+                                />
+
+                            </View>
+
+                            <View style={styles.cardSectionStyle}>
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
+                                />
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={this.gotoPage('sample1', 'sample1')}
+                                />
+
+                                <TileComponent
+                                    btnText={'Sample 123 here'}
+                                // onPress={this.gotoPage('sample1', 'sample1')}
+                                />
+
+                            </View>
 
                         </View>
+                    </ScrollView>
+                </View>
 
-                        <View style={styles.cardSectionStyle}>
 
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
-                            />
-
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={this.gotoPage('sample1', 'sample1')}
-                            />
-
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={this.gotoPage('sample1', 'sample1')}
-                            />
-
-                        </View>
-
-                        <View style={styles.cardSectionStyle}>
-
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
-                            />
-
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={this.gotoPage('sample1', 'sample1')}
-                            />
-
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={this.gotoPage('sample1', 'sample1')}
-                            />
-
-                        </View>
-
-                        <View style={styles.cardSectionStyle}>
-
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
-                            />
-
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={this.gotoPage('sample1', 'sample1')}
-                            />
-
-                            <TileComponent
-                                btnText={'Sample 123 here'}
-                                onPress={this.gotoPage('sample1', 'sample1')}
-                            />
-
-                        </View>
-
-                    </View>
-                </ScrollView>
 
                 <View style={{ flex: 0.1, margin: 1 }}>
                     <AdMobBanner
@@ -211,6 +220,7 @@ const mapStateToProps = (state) => {
 const styles = {
     mainContainer: {
         flex: 0.9,
+        flexDirection: 'column'
     },
     containerStyle: {
         flexDirection: 'column',
@@ -236,6 +246,11 @@ const styles = {
         margin: 2,
         textAlign: 'center',
         color: '#212121',
+    }, carouselContainer: {
+        flex: 0.3
+    },
+    tileContainer: {
+        flex: 0.7
     }
 };
 
