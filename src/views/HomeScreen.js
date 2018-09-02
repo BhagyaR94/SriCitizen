@@ -50,6 +50,14 @@ class HomeScreen extends Component {
         }
     }
 
+    gotoPage(screenName, screenTitle) {
+        const { navigate } = this.props.navigation;
+        navigate(
+            screenName, {
+                screen: screenTitle
+            });
+    }
+
     render() {
 
         const { navigate } = this.props.navigation;
@@ -104,9 +112,7 @@ class HomeScreen extends Component {
 
                             <View style={styles.buttonStyle}>
                                 <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
+                                    onPress={() => this.gotoPage("PaperIndex", "NewsPapers")}>
                                     <View>
                                         <Image
                                             source={require('./../../assets/img/main_menu/paper.png')}
@@ -309,7 +315,7 @@ class HomeScreen extends Component {
 
 const mapStateToProps = (state) => {
     console.log('***************************************');
-    console.log('MAP STATE TO PROPS'+JSON.stringify(state.news));
+    console.log('MAP STATE TO PROPS' + JSON.stringify(state.news));
     console.log('***************************************');
     const newsPapers = state.news;
     // const newsPapers = '';
