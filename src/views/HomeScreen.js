@@ -14,6 +14,8 @@ import { AdMobBanner } from 'react-native-admob';
 import LocalizedStrings from 'react-native-localization';
 import * as actions from '../actions/';
 import { connect } from 'react-redux';
+import ButtonComponent from './components/ButtonComponent';
+import TileComponent from './components/TileComponent';
 
 class HomeScreen extends Component {
     static navigationOptions = {
@@ -98,51 +100,27 @@ class HomeScreen extends Component {
             <View style={{ flex: 1 }}>
                 <ScrollView style={styles.mainContainer}>
                     <View style={styles.containerStyle}>
-
+                        {/* <ButtonComponent
+                            btnText={'Sample 123 here'}
+                        />
+                        <TileComponent
+                            btnText={'Sample 123 here'}
+                        /> */}
                         {/* First Row */}
                         <View style={styles.cardSectionStyle}>
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/paper.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.newspaper}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                            />
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/calendar.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.holidays}</Text></View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                            />
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/telephone.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.telephone}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
-
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                            />
+                            
                         </View>
                         {/* End of First Row */}
 
@@ -309,7 +287,7 @@ class HomeScreen extends Component {
 
 const mapStateToProps = (state) => {
     console.log('***************************************');
-    console.log('MAP STATE TO PROPS'+JSON.stringify(state.news));
+    console.log('MAP STATE TO PROPS' + JSON.stringify(state.news));
     console.log('***************************************');
     const newsPapers = state.news;
     // const newsPapers = '';
