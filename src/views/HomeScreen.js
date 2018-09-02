@@ -119,17 +119,20 @@ class HomeScreen extends Component {
 
                             <TileComponent
                                 btnText={'Sample 123 here'}
+                                onPress={this.gotoScreen('sample1', 'sample1')}
                             />
 
                             <TileComponent
                                 btnText={'Sample 123 here'}
+                                onPress={this.gotoScreen('sample1', 'sample1')}
                             />
 
                             <TileComponent
                                 btnText={'Sample 123 here'}
-                            /> 
+                                onPress={this.gotoScreen('sample1', 'sample1')}
+                            />
                             {/* sample */}
-                            
+
                         </View>
                         {/* End of First Row */}
 
