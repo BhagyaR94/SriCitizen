@@ -14,7 +14,6 @@ import { AdMobBanner } from 'react-native-admob';
 import LocalizedStrings from 'react-native-localization';
 import * as actions from '../actions/';
 import { connect } from 'react-redux';
-import ButtonComponent from './components/ButtonComponent';
 import TileComponent from './components/TileComponent';
 
 class HomeScreen extends Component {
@@ -38,11 +37,11 @@ class HomeScreen extends Component {
         }
     }
 
-    componentDidMount() {
-        this._method1();
+    componentWillMount() {
+        this.method1();
     }
 
-    _method1 = async () => {
+    method1 = async () => {
         try {
             let user = await AsyncStorage.getItem('@MySuperStore:key').then();
             console.log("HELLO" + user);
@@ -62,7 +61,6 @@ class HomeScreen extends Component {
 
     render() {
 
-        const { navigate } = this.props.navigation;
         strings.setLanguage(this.props.navigation.state.params.locale);
         NetInfo.getConnectionInfo().then((connectionInfo) => {
             if (connectionInfo.type === 'none') {
@@ -108,177 +106,81 @@ class HomeScreen extends Component {
             <View style={{ flex: 1 }}>
                 <ScrollView style={styles.mainContainer}>
                     <View style={styles.containerStyle}>
-                        {/* <ButtonComponent
-                            btnText={'Sample 123 here'}
-                        />
-                        <TileComponent
-                            btnText={'Sample 123 here'}
-                        /> */}
-                        {/* First Row */}
                         <View style={styles.cardSectionStyle}>
 
                             <TileComponent
                                 btnText={'Sample 123 here'}
-                                onPress={this.gotoScreen('sample1', 'sample1')}
+                                onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
                             />
 
                             <TileComponent
                                 btnText={'Sample 123 here'}
-                                onPress={this.gotoScreen('sample1', 'sample1')}
+                                onPress={this.gotoPage('sample1', 'sample1')}
                             />
 
                             <TileComponent
                                 btnText={'Sample 123 here'}
-                                onPress={this.gotoScreen('sample1', 'sample1')}
+                                onPress={this.gotoPage('sample1', 'sample1')}
                             />
-                            {/* sample */}
 
                         </View>
-                        {/* End of First Row */}
 
-                        {/* Second Row */}
                         <View style={styles.cardSectionStyle}>
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("MarketScreen", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/market.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.market}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                                onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
+                            />
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/lightning.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.weather}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                                onPress={this.gotoPage('sample1', 'sample1')}
+                            />
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/zodiac.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.zodiac}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                                onPress={this.gotoPage('sample1', 'sample1')}
+                            />
 
                         </View>
-                        {/* End of Second Row */}
 
-                        {/* Third Row */}
                         <View style={styles.cardSectionStyle}>
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/market.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.market}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                                onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
+                            />
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/lightning.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.weather}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                                onPress={this.gotoPage('sample1', 'sample1')}
+                            />
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/zodiac.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.zodiac}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                                onPress={this.gotoPage('sample1', 'sample1')}
+                            />
 
                         </View>
-                        {/* End of Third Row */}
 
-                        {/* Fourth Row */}
                         <View style={styles.cardSectionStyle}>
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/market.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.market}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                                onPress={() => { this.gotoPage('PaperIndex', 'NewsPapers') }}
+                            />
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/lightning.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.weather}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                                onPress={this.gotoPage('sample1', 'sample1')}
+                            />
 
-                            <View style={styles.buttonStyle}>
-                                <TouchableHighlight style={{ margin: 10 }}
-                                    onPress={() => navigate("PaperIndex", {
-                                        screen: "NewsPapers"
-                                    })}>
-                                    <View>
-                                        <Image
-                                            source={require('./../../assets/img/main_menu/zodiac.png')}
-                                        />
-                                        <Text style={styles.textStyles}>{strings.zodiac}</Text>
-                                    </View>
-                                </TouchableHighlight>
-                            </View>
+                            <TileComponent
+                                btnText={'Sample 123 here'}
+                                onPress={this.gotoPage('sample1', 'sample1')}
+                            />
 
                         </View>
-                        {/* End of Fourth Row */}
 
                     </View>
                 </ScrollView>
