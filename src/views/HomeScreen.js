@@ -52,6 +52,14 @@ class HomeScreen extends Component {
         }
     }
 
+    gotoPage(screenName, screenTitle) {
+        const { navigate } = this.props.navigation;
+        navigate(
+            screenName, {
+                screen: screenTitle
+            });
+    }
+
     render() {
 
         const { navigate } = this.props.navigation;
